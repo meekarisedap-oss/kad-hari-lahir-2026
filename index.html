@@ -1,0 +1,3424 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Pengurusan Kad Hari Lahir Ahli 2026</title>
+  <style>
+    /* ==========================================================================
+       SISTEM REKA BENTUK PREMIUM SAAS DASHBOARD 2026 (VANILLA CSS)
+       Palet: Royal Indigo, Emas/Amber, Putih Bersih, Slate Lembut
+       ========================================================================== */
+    :root {
+      --primary: #3730a3;
+      --primary-hover: #312e81;
+      --primary-light: #eef2ff;
+      --primary-glow: rgba(55, 48, 163, 0.18);
+      --gold: #d97706;
+      --gold-bright: #f59e0b;
+      --gold-light: #fef3c7;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --sidebar-w: 270px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 12px 30px -4px rgba(15, 23, 42, 0.14);
+      --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Utama */
+    .app-shell {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Desktop */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: linear-gradient(180deg, #1e1b4b 0%, #2e2a85 100%);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 40;
+      transition: transform 0.3s ease;
+      box-shadow: 4px 0 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .brand-box {
+      padding: 24px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      color: #1e1b4b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+    }
+
+    .brand-text h1 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      font-size: 0.72rem;
+      color: #c7d2fe;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .nav-menu {
+      padding: 18px 12px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      overflow-y: auto;
+    }
+
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      border: none;
+      background: transparent;
+      color: #c7d2fe;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+      width: 100%;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.22), rgba(245, 158, 11, 0.06));
+      color: #ffffff;
+      font-weight: 600;
+      border-left: 3px solid #fbbf24;
+    }
+
+    .nav-btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .nav-badge {
+      margin-left: auto;
+      background: #f59e0b;
+      color: #1e1b4b;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .sidebar-footer {
+      padding: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.78rem;
+      color: #a5b4fc;
+    }
+
+    .org-mini-card {
+      background: rgba(255, 255, 255, 0.07);
+      padding: 12px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .org-mini-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: #ffffff;
+      object-fit: contain;
+      padding: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Kawasan Kandungan Utama */
+    .main-area {
+      flex: 1;
+      margin-left: var(--sidebar-w);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding-bottom: 80px;
+    }
+
+    /* Topbar */
+    .topbar {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      gap: 12px;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: var(--primary-light);
+      color: var(--primary);
+      border: none;
+      padding: 8px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    .page-title-wrap h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .page-title-wrap p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .date-pill {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Container Halaman */
+    .content-wrap {
+      padding: 24px 28px;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .view-section {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .view-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Butang Umum */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 2px 8px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #ffffff;
+      box-shadow: 0 2px 10px rgba(217, 119, 6, 0.28);
+    }
+
+    .btn-gold:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-whatsapp {
+      background: #16a34a;
+      color: #ffffff;
+      box-shadow: 0 2px 10px rgba(22, 163, 74, 0.25);
+    }
+
+    .btn-whatsapp:hover {
+      background: #15803d;
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      border-color: var(--border);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-danger {
+      background: var(--rose-light);
+      color: var(--rose);
+    }
+
+    .btn-danger:hover {
+      background: #fecdd3;
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+    }
+
+    /* Banner Peringatan Automatik */
+    .alert-banner {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1px solid #fcd34d;
+      border-left: 5px solid #f59e0b;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .alert-banner-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .alert-icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #f59e0b;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      animation: pulseGlow 2s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .kpi-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .kpi-value {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+
+    .kpi-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .kpi-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Kad Panel Umum */
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .panel-header {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .panel-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-body {
+      padding: 20px 22px;
+    }
+
+    /* Grid 2 Kolum Dashboard */
+    .dash-grid-2 {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+    }
+
+    /* Kad Hari Lahir Hari Ini */
+    .today-bday-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 16px;
+    }
+
+    .today-card {
+      border: 1px solid #fde68a;
+      background: linear-gradient(145deg, #ffffff 0%, #fffbeb 100%);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+
+    .member-row-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 600;
+    }
+
+    .badge-gold { background: var(--gold-light); color: #92400e; }
+    .badge-indigo { background: var(--primary-light); color: var(--primary); }
+    .badge-green { background: var(--emerald-light); color: #065f46; }
+    .badge-gray { background: #f1f5f9; color: #475569; }
+    .badge-rose { background: var(--rose-light); color: #9f1239; }
+
+    /* Tab Penapis */
+    .tab-group {
+      display: inline-flex;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: var(--radius-sm);
+      gap: 4px;
+    }
+
+    .tab-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Senarai Item Akan Tiba & Checklist */
+    .list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .list-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    /* Jadual Responsif (Pengurusan Ahli) */
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .input-control, .select-control, .textarea-control {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-family: inherit;
+      color: var(--text-main);
+      background: #ffffff;
+      transition: var(--transition);
+    }
+
+    .input-control:focus, .select-control:focus, .textarea-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: #f8fafc;
+      padding: 13px 16px;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: #fafbff;
+    }
+
+    /* Kalendar Tahunan 12 Bulan */
+    .calendar-12-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .month-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .month-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .month-card-header h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .cal-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .cal-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 3px;
+    }
+
+    .cal-day {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      border-radius: 8px;
+      position: relative;
+      color: var(--text-main);
+      user-select: none;
+    }
+
+    .cal-day.empty {
+      visibility: hidden;
+    }
+
+    .cal-day.is-today {
+      border: 2px solid var(--primary);
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .cal-day.has-bday {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      color: #92400e;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.25);
+      transition: var(--transition);
+    }
+
+    .cal-day.has-bday:hover {
+      transform: scale(1.12);
+      background: #f59e0b;
+      color: #ffffff;
+      z-index: 2;
+    }
+
+    .bday-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #d97706;
+      margin-top: 1px;
+    }
+
+    .cal-day.has-bday:hover .bday-dot {
+      background: #ffffff;
+    }
+
+    /* Penjana Kad Digital Studio */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .theme-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .theme-chip {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      cursor: pointer;
+      text-align: left;
+      background: #ffffff;
+      transition: var(--transition);
+    }
+
+    .theme-chip.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .theme-swatch {
+      height: 24px;
+      border-radius: 5px;
+      margin-bottom: 6px;
+    }
+
+    /* Pratonton Kanvas + Lapisan Animasi */
+    .preview-stage {
+      background: #1e293b;
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .canvas-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+      background: #ffffff;
+    }
+
+    #cardCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    #fxOverlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    /* Animasi Zarah CSS (Belon, Konfeti, Kelopak Bunga) */
+    .fx-particle {
+      position: absolute;
+      user-select: none;
+      will-change: transform, opacity;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(110%) rotate(-6deg); opacity: 0; }
+      15% { opacity: 0.95; }
+      85% { opacity: 0.95; }
+      100% { transform: translateY(-130%) rotate(8deg); opacity: 0; }
+    }
+
+    @keyframes fallDown {
+      0% { transform: translateY(-15%) rotate(0deg) translateX(0); opacity: 0; }
+      15% { opacity: 1; }
+      100% { transform: translateY(115%) rotate(540deg) translateX(35px); opacity: 0.2; }
+    }
+
+    /* WhatsApp Box dalam Penjana Kad */
+    .wa-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 60;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      max-width: 520px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-header {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-body {
+      padding: 20px 22px;
+    }
+
+    .modal-footer {
+      padding: 14px 22px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      background: #f8fafc;
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 84px;
+      right: 20px;
+      z-index: 80;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 360px;
+    }
+
+    .toast {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 13px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.86rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 4px solid #f59e0b;
+      animation: slideInRight 0.25s ease;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Bar Navigasi Bawah Mudah Alih */
+    .mobile-bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      z-index: 45;
+      padding: 6px 4px;
+      justify-content: space-around;
+      box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.06);
+    }
+
+    .m-nav-item {
+      border: none;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 6px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .m-nav-item.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      z-index: 35;
+    }
+
+    /* Responsif Tablet & Telefon */
+    @media (max-width: 1100px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .dash-grid-2, .studio-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 820px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      .sidebar-overlay.open {
+        display: block;
+      }
+      .main-area {
+        margin-left: 0;
+      }
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+      .mobile-bottom-nav {
+        display: flex;
+      }
+      .topbar {
+        padding: 12px 16px;
+      }
+      .content-wrap {
+        padding: 16px;
+      }
+      .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .kpi-value {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-shell">
+  <!-- Overlay Mudah Alih -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar(false)"></div>
+
+  <!-- Sidebar Navigasi -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand-box">
+      <div class="brand-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/>
+          <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/>
+          <path d="M2 21h20"/>
+          <path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/>
+          <path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>KadHariLahir 2026</h1>
+        <span>Pengurusan Ahli &amp; Ucapan</span>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <button class="nav-btn active" data-view="dashboard" onclick="switchView('dashboard')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard Utama
+        <span class="nav-badge" id="navTodayBadge" style="display:none;">0</span>
+      </button>
+
+      <button class="nav-btn" data-view="members" onclick="switchView('members')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Pengurusan Ahli
+      </button>
+
+      <button class="nav-btn" data-view="calendar" onclick="switchView('calendar')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Kalendar Tahunan
+      </button>
+
+      <button class="nav-btn" data-view="generator" onclick="switchView('generator')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Penjana Kad Digital
+      </button>
+
+      <button class="nav-btn" data-view="settings" onclick="switchView('settings')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Tetapan &amp; Backup Data
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="org-mini-card">
+        <img id="sidebarOrgLogo" class="org-mini-logo" alt="Logo" style="display:none;" />
+        <div style="min-width:0;">
+          <div id="sidebarOrgName" style="color:#fff; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Kelab Kebajikan &amp; Sosial</div>
+          <div>Storan Lokal Aktif</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Kandungan Utama -->
+  <div class="main-area">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" onclick="toggleSidebar(true)" aria-label="Buka Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="page-title-wrap">
+          <h2 id="topbarTitle">Dashboard Utama</h2>
+          <p id="topbarSubtitle">Ringkasan sambutan hari lahir ahli &amp; automasi peringatan</p>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="date-pill" id="liveDatePill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span id="currentDateDisplay">--</span>
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="openMemberModal()">
+          + Tambah Ahli
+        </button>
+      </div>
+    </header>
+
+    <main class="content-wrap">
+
+      <!-- ==================================================================
+           1. VIEW: DASHBOARD UTAMA
+           ================================================================== -->
+      <section id="view-dashboard" class="view-section active">
+        <!-- Banner Peringatan Automatik -->
+        <div id="autoReminderBanner" class="alert-banner" style="display:none;">
+          <div class="alert-banner-info">
+            <div class="alert-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <div>
+              <h3 id="bannerTitle" style="font-size:0.98rem; color:#92400e;">Peringatan Hari Lahir!</h3>
+              <p id="bannerDesc" style="font-size:0.85rem; color:#78350f;">Semak senarai ahli yang menyambut hari lahir hari ini.</p>
+            </div>
+          </div>
+          <button class="btn btn-gold btn-sm" onclick="switchView('generator')">
+            Jana Kad Sekarang &rarr;
+          </button>
+        </div>
+
+        <!-- Kad KPI -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-label">Jumlah Keseluruhan Ahli</div>
+              <div class="kpi-value" id="kpiTotalMembers">0</div>
+              <div class="kpi-sub">Ahli berdaftar aktif</div>
+            </div>
+            <div class="kpi-icon" style="background:#eef2ff; color:#3730a3;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-label">Hari Lahir Bulan Ini</div>
+              <div class="kpi-value" id="kpiMonthBdays">0</div>
+              <div class="kpi-sub" id="kpiMonthName">Bulan semasa</div>
+            </div>
+            <div class="kpi-icon" style="background:#fef3c7; color:#d97706;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-label">Hari Lahir Hari Ini</div>
+              <div class="kpi-value" id="kpiTodayBdays" style="color:#d97706;">0</div>
+              <div class="kpi-sub">Perlu ucapan segera</div>
+            </div>
+            <div class="kpi-icon" style="background:#ffe4e6; color:#e11d48;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div>
+              <div class="kpi-label">Kad Dihantar (<span id="kpiYearLabel">2026</span>)</div>
+              <div class="kpi-value" id="kpiSentCards" style="color:#059669;">0</div>
+              <div class="kpi-sub" id="kpiSentRate">0% selesai tahun ini</div>
+            </div>
+            <div class="kpi-icon" style="background:#d1fae5; color:#059669;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Senarai Hari Lahir Hari Ini -->
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span style="color:#f59e0b;">&#9733;</span> Senarai Hari Lahir Hari Ini
+            </div>
+            <span class="badge badge-gold" id="todayCountTag">0 Ahli</span>
+          </div>
+          <div class="panel-body" id="todayBdayContainer">
+            <!-- Dijana secara dinamik -->
+          </div>
+        </div>
+
+        <!-- Grid 2 Kolum: Hari Lahir Akan Tiba & Senarai Semak Penghantaran -->
+        <div class="dash-grid-2">
+          <!-- Hari Lahir Akan Tiba -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Hari Lahir Akan Tiba</div>
+              <div class="tab-group">
+                <button class="tab-btn active" id="tab7Days" onclick="setUpcomingFilter(7)">Dalam 7 Hari</button>
+                <button class="tab-btn" id="tab30Days" onclick="setUpcomingFilter(30)">Dalam 30 Hari</button>
+              </div>
+            </div>
+            <div class="panel-body" id="upcomingBdayContainer">
+              <!-- Dijana secara dinamik -->
+            </div>
+          </div>
+
+          <!-- Senarai Semak & Rekod Penghantaran Kad -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Senarai Semak &amp; Rekod Kad</div>
+              <span class="badge badge-indigo" id="checklistYearBadge">Tahun 2026</span>
+            </div>
+            <div class="panel-body" id="deliveryChecklistContainer" style="max-height:430px; overflow-y:auto;">
+              <!-- Dijana secara dinamik -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           2. VIEW: PENGURUSAN AHLI (CRUD, CARIAN, IMPORT/EKSPORT CSV)
+           ================================================================== -->
+      <section id="view-members" class="view-section">
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">Direktori &amp; Pengurusan Ahli</div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="btn btn-outline btn-sm" onclick="downloadSampleCSVTemplate()">
+                Templat CSV
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="exportMembersCSV()">
+                Eksport CSV
+              </button>
+              <label class="btn btn-outline btn-sm" style="cursor:pointer;">
+                Import CSV
+                <input type="file" id="csvImportInput" accept=".csv" style="display:none;" onchange="importMembersCSV(event)" />
+              </label>
+              <button class="btn btn-primary btn-sm" onclick="openMemberModal()">
+                + Tambah Ahli Baharu
+              </button>
+            </div>
+          </div>
+
+          <div class="panel-body">
+            <!-- Bar Carian & Penapis -->
+            <div class="filter-bar">
+              <input type="text" id="memberSearchInput" class="input-control" style="flex:1; min-width:220px;" placeholder="Cari No. Ahli, nama ahli atau nombor WhatsApp..." oninput="renderMembersTable()" />
+              <select id="memberMonthFilter" class="select-control" onchange="renderMembersTable()">
+                <option value="all">Semua Bulan Lahir</option>
+                <option value="1">Januari</option>
+                <option value="2">Februari</option>
+                <option value="3">Mac</option>
+                <option value="4">April</option>
+                <option value="5">Mei</option>
+                <option value="6">Jun</option>
+                <option value="7">Julai</option>
+                <option value="8">Ogos</option>
+                <option value="9">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Disember</option>
+              </select>
+              <select id="memberStatusFilter" class="select-control" onchange="renderMembersTable()">
+                <option value="all">Semua Status Kad</option>
+                <option value="sent">Telah Dihantar</option>
+                <option value="pending">Belum Dihantar</option>
+              </select>
+            </div>
+
+            <!-- Jadual Ahli -->
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>No. Ahli</th>
+                    <th>Ahli</th>
+                    <th>No. WhatsApp</th>
+                    <th>Tarikh Lahir</th>
+                    <th>Umur (<span class="dyn-year">2026</span>)</th>
+                    <th>Status Kad</th>
+                    <th style="text-align:right;">Tindakan</th>
+                  </tr>
+                </thead>
+                <tbody id="membersTableBody">
+                  <!-- Dijana secara dinamik -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           3. VIEW: KALENDAR HARI LAHIR TAHUNAN (JANUARI - DISEMBER)
+           ================================================================== -->
+      <section id="view-calendar" class="view-section">
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">Kalendar Hari Lahir Tahunan (Januari – Disember)</div>
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <label for="calendarYearSelect" style="font-size:0.85rem; font-weight:600; color:var(--text-muted);">Pilih Tahun:</label>
+              <select id="calendarYearSelect" class="select-control" onchange="renderAnnualCalendar()">
+                <!-- Diisi oleh JS: Tahun semasa & tahun berikutnya -->
+              </select>
+            </div>
+          </div>
+          <div class="panel-body">
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">
+              Klik pada tarikh bertanda warna <strong>Emas</strong> untuk melihat senarai ahli yang menyambut hari lahir dan terus menjana kad ucapan.
+            </p>
+            <div class="calendar-12-grid" id="annualCalendarGrid">
+              <!-- 12 Bulan dijana secara dinamik -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Ringkasan Senarai Hari Lahir Mengikut Bulan -->
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">Senarai Hari Lahir Mengikut Bulan</div>
+            <select id="summaryMonthSelect" class="select-control" onchange="renderMonthlySummaryList()">
+              <option value="1">Januari</option>
+              <option value="2">Februari</option>
+              <option value="3">Mac</option>
+              <option value="4">April</option>
+              <option value="5">Mei</option>
+              <option value="6">Jun</option>
+              <option value="7">Julai</option>
+              <option value="8">Ogos</option>
+              <option value="9">September</option>
+              <option value="10">Oktober</option>
+              <option value="11">November</option>
+              <option value="12">Disember</option>
+            </select>
+          </div>
+          <div class="panel-body" id="monthlySummaryContainer">
+            <!-- Dijana secara dinamik -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           4. VIEW: PENJANA KAD HARI LAHIR DIGITAL & INTEGRASI WHATSAPP
+           ================================================================== -->
+      <section id="view-generator" class="view-section">
+        <div class="studio-grid">
+          <!-- Panel Kawalan Kiri -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Rekabentuk &amp; Maklumat Kad</div>
+              <button class="btn btn-outline btn-sm" onclick="triggerFxBurst()">
+                Cetuskan Animasi
+              </button>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label class="form-label">Pilih Ahli (Auto-Isi Nama, Gambar &amp; WhatsApp)</label>
+                <select id="cardMemberSelect" class="select-control" style="width:100%;" onchange="onSelectCardMember()">
+                  <option value="">-- Pilih Ahli atau Taip Manual di Bawah --</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Nama Penerima pada Kad</label>
+                <input type="text" id="cardRecipientName" class="input-control" style="width:100%;" value="Ahmad Zulkifli bin Hassan" oninput="drawBirthdayCard()" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Pilih Tema &amp; Template Eksklusif (5 Pilihan)</label>
+                <div class="theme-selector-grid" id="themeSelectorGrid">
+                  <!-- Dijana secara dinamik -->
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Templat Ucapan Bahasa Melayu</label>
+                <select id="greetingPresetSelect" class="select-control" style="width:100%;" onchange="applyGreetingPreset()">
+                  <option value="formal">Formal Organisasi</option>
+                  <option value="mesra">Mesra &amp; Ceria</option>
+                  <option value="doa">Doa &amp; Keberkatan</option>
+                  <option value="korporat">Eksekutif &amp; Korporat</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Teks Ucapan pada Kad (Boleh Diedit)</label>
+                <textarea id="cardGreetingText" class="textarea-control" rows="3" style="width:100%;" oninput="drawBirthdayCard()">Selamat Menyambut Hari Lahir! Semoga sentiasa dikurniakan kesihatan yang baik, kebahagiaan berpanjangan, dan kejayaan cemerlang dalam setiap langkah.</textarea>
+              </div>
+
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+                <div class="form-group">
+                  <label class="form-label">Nama Pengirim / Organisasi</label>
+                  <input type="text" id="cardSenderName" class="input-control" style="width:100%;" oninput="drawBirthdayCard()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Logo Organisasi (Pilihan)</label>
+                  <input type="file" id="cardLogoUpload" accept="image/*" class="input-control" style="width:100%; padding:7px;" onchange="handleOrgLogoUpload(event)" />
+                </div>
+              </div>
+
+              <div class="form-group" style="display:flex; align-items:center; justify-content:space-between; background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
+                <span style="font-size:0.85rem; font-weight:600;">Animasi Belon, Konfeti &amp; Kelopak Bunga</span>
+                <label style="display:inline-flex; align-items:center; gap:6px; cursor:pointer; font-size:0.85rem;">
+                  <input type="checkbox" id="toggleFxCheckbox" checked onchange="toggleFxLayer()" />
+                  Aktifkan
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel Pratonton & Integrasi WhatsApp Kanan -->
+          <div>
+            <div class="preview-stage">
+              <div style="width:100%; max-width:460px; display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; color:#e2e8f0; font-size:0.82rem;">
+                <span>Pratonton Resolusi Tinggi (1080 &times; 1080 px)</span>
+                <span class="badge badge-gold">Sedia Muat Turun</span>
+              </div>
+
+              <div class="canvas-wrapper">
+                <canvas id="cardCanvas" width="1080" height="1080"></canvas>
+                <div id="fxOverlay"></div>
+              </div>
+
+              <!-- Butang Muat Turun PNG / JPG & Kongsi -->
+              <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:18px; width:100%;">
+                <button class="btn btn-gold" onclick="downloadCardImage('png')">
+                  Muat Turun PNG
+                </button>
+                <button class="btn btn-outline" onclick="downloadCardImage('jpeg')">
+                  Muat Turun JPG
+                </button>
+                <button class="btn btn-primary" id="webShareBtn" onclick="shareCardNative()">
+                  Kongsi Gambar + Teks (WhatsApp Mobile)
+                </button>
+              </div>
+            </div>
+
+            <!-- Integrasi WhatsApp -->
+            <div class="wa-box">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+                <h3 style="font-size:0.98rem; color:#166534; display:flex; align-items:center; gap:8px;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  Penghantaran Melalui WhatsApp
+                </h3>
+                <span id="waStatusIndicator" class="badge badge-gray">Sedia Dihantar</span>
+              </div>
+
+              <div class="form-group" style="margin-bottom:10px;">
+                <label class="form-label" style="color:#166534;">Nombor WhatsApp Penerima (Format: 601...)</label>
+                <input type="text" id="waPhoneInput" class="input-control" style="width:100%;" placeholder="Contoh: 60123456789" />
+              </div>
+
+              <div class="form-group" style="margin-bottom:12px;">
+                <label class="form-label" style="color:#166534;">Mesej WhatsApp Automatik (Boleh Diedit)</label>
+                <textarea id="waMessageInput" class="textarea-control" rows="4" style="width:100%;"></textarea>
+              </div>
+
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px; font-size:0.82rem; color:#15803d;">
+                <input type="checkbox" id="autoDownloadOnWa" checked />
+                <label for="autoDownloadOnWa">Salin gambar kad ke papan keratan (Clipboard) &amp; muat turun salinan PNG secara automatik semasa menghantar.</label>
+              </div>
+
+              <div style="display:grid; grid-template-columns: 1fr; gap:8px;">
+                <button class="btn btn-whatsapp" style="width:100%; padding:12px; font-size:0.95rem;" onclick="sendViaWhatsApp()">
+                  Hantar Kad Melalui WhatsApp (PC / Web)
+                </button>
+                <button class="btn btn-primary" style="width:100%; padding:10px; font-size:0.88rem;" onclick="shareCardNative()">
+                  Kongsi Gambar + Teks (WhatsApp Mobile)
+                </button>
+              </div>
+
+              <div style="background:#dcfce7; border:1px solid #86efac; border-radius:8px; padding:10px 12px; margin-top:12px; font-size:0.79rem; color:#14532d; line-height:1.5;">
+                <strong>Panduan Menghantar Gambar Kad + Ucapan:</strong>
+                <ul style="margin:4px 0 0 18px; padding:0;">
+                  <li><strong>Pengguna Telefon Pintar (Mobile):</strong> Tekan butang <em>"Kongsi Gambar + Teks (WhatsApp Mobile)"</em> dan pilih aplikasi WhatsApp untuk menghantar kad &amp; teks serentak.</li>
+                  <li><strong>Pengguna Komputer / Laptop:</strong> Tekan <em>"Hantar Kad Melalui WhatsApp (PC / Web)"</em>. Gambar kad disalin automatik &mdash; apabila sembang WhatsApp terbuka, terus tekan <strong>Ctrl + V</strong> (atau <strong>Cmd + V</strong>) untuk menampal kad.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           5. VIEW: TETAPAN ORGANISASI & BACKUP / RESTORE DATA JSON
+           ================================================================== -->
+      <section id="view-settings" class="view-section">
+        <div class="dash-grid-2">
+          <!-- Profil & Logo Organisasi -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Profil &amp; Penjenamaan Organisasi</div>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label class="form-label">Nama Organisasi / Persatuan / Syarikat</label>
+                <input type="text" id="settingsOrgName" class="input-control" style="width:100%;" placeholder="Contoh: Kelab Kebajikan & Sosial" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Logo Organisasi (Dipaparkan pada Sidebar &amp; Kad Digital)</label>
+                <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                  <img id="settingsLogoPreview" src="" alt="Logo Organisasi" style="width:64px; height:64px; border-radius:12px; border:1px solid var(--border); object-fit:contain; padding:4px; background:#fff; display:none;" />
+                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <label class="btn btn-outline btn-sm" style="cursor:pointer;">
+                      Muat Naik Logo
+                      <input type="file" accept="image/*" style="display:none;" onchange="handleOrgLogoUpload(event)" />
+                    </label>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeOrgLogo()">Padam Logo</button>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-primary" onclick="saveOrgSettings()">Simpan Tetapan Organisasi</button>
+            </div>
+          </div>
+
+          <!-- Sandaran & Pemulihan Data JSON -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Sandaran (Backup) &amp; Pemulihan Data</div>
+            </div>
+            <div class="panel-body">
+              <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:16px;">
+                Semua maklumat ahli, rekod penghantaran kad dan tetapan disimpan secara kekal di dalam pelayar (LocalStorage). Muat turun fail JSON sebagai salinan keselamatan.
+              </p>
+
+              <div style="display:flex; flex-direction:column; gap:12px;">
+                <button type="button" class="btn btn-gold" onclick="exportFullJSONBackup()">
+                  Muat Turun Backup Penuh (JSON)
+                </button>
+
+                <label class="btn btn-outline" style="cursor:pointer;">
+                  Pulihkan Data daripada Fail JSON (Restore)
+                  <input type="file" accept=".json" style="display:none;" onchange="importFullJSONBackup(event)" />
+                </label>
+
+                <hr style="border:none; border-top:1px solid var(--border); margin:6px 0;" />
+
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                  <button type="button" class="btn btn-outline btn-sm" onclick="loadSampleData()">
+                    Muat Semula Data Contoh
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm" onclick="openClearDataModal()">
+                    Kosongkan Semua Data
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Navigasi Bawah Mudah Alih -->
+  <nav class="mobile-bottom-nav">
+    <button class="m-nav-item active" data-view="dashboard" onclick="switchView('dashboard')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </button>
+    <button class="m-nav-item" data-view="members" onclick="switchView('members')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      Ahli
+    </button>
+    <button class="m-nav-item" data-view="calendar" onclick="switchView('calendar')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Kalendar
+    </button>
+    <button class="m-nav-item" data-view="generator" onclick="switchView('generator')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      Kad Digital
+    </button>
+    <button class="m-nav-item" data-view="settings" onclick="switchView('settings')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Tetapan
+    </button>
+  </nav>
+</div>
+
+<!-- ========================================================================
+     MODAL TAMBAH / EDIT AHLI
+     ======================================================================== -->
+<div class="modal-backdrop" id="memberModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 id="memberModalTitle" style="font-size:1.05rem;">Tambah Ahli Baharu</h3>
+      <button class="btn btn-outline btn-sm" onclick="closeModal('memberModal')">&times;</button>
+    </div>
+    <form id="memberForm" onsubmit="saveMemberForm(event)">
+      <div class="modal-body">
+        <input type="hidden" id="editMemberId" />
+
+        <div class="form-group">
+          <label class="form-label">No. Ahli *</label>
+          <input type="text" id="memberNoInput" class="input-control" style="width:100%;" required placeholder="Contoh: A-001" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nama Penuh Ahli *</label>
+          <input type="text" id="memberFullName" class="input-control" style="width:100%;" required placeholder="Contoh: Nurul Izzah binti Kamal" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nombor Telefon WhatsApp * (Format Malaysia)</label>
+          <input type="tel" id="memberPhone" class="input-control" style="width:100%;" required placeholder="Contoh: 0123456789 atau 60123456789" />
+          <small style="color:var(--text-muted); font-size:0.76rem;">Sistem akan memformat secara automatik kepada 601XXXXXXXX.</small>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Tarikh Lahir *</label>
+          <input type="date" id="memberDob" class="input-control" style="width:100%;" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Gambar Ahli (Pilihan - Dipaparkan pada Profil &amp; Kad)</label>
+          <input type="file" id="memberPhotoInput" accept="image/*" class="input-control" style="width:100%;" onchange="previewMemberPhoto(event)" />
+          <div id="memberPhotoPreviewWrap" style="margin-top:10px; display:none; align-items:center; gap:10px;">
+            <img id="memberPhotoPreview" src="" alt="Pratonton" class="avatar" style="width:56px; height:56px;" />
+            <button type="button" class="btn btn-danger btn-sm" onclick="clearMemberPhoto()">Buang Gambar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeModal('memberModal')">Batal</button>
+        <button type="submit" class="btn btn-primary">Simpan Maklumat Ahli</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ========================================================================
+     MODAL PERINCIAN TARIKH KALENDAR
+     ======================================================================== -->
+<div class="modal-backdrop" id="calendarDayModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 id="calModalTitle" style="font-size:1.05rem;">Hari Lahir pada Tarikh</h3>
+      <button class="btn btn-outline btn-sm" onclick="closeModal('calendarDayModal')">&times;</button>
+    </div>
+    <div class="modal-body" id="calModalBody"></div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline" onclick="closeModal('calendarDayModal')">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================
+     MODAL PENGESAHAN PADAM (GANTI CONFIRM)
+     ======================================================================== -->
+<div class="modal-backdrop" id="confirmModal">
+  <div class="modal-card" style="max-width:420px;">
+    <div class="modal-header">
+      <h3 id="confirmModalTitle" style="font-size:1.05rem; color:var(--rose);">Sahkan Tindakan</h3>
+      <button class="btn btn-outline btn-sm" onclick="closeModal('confirmModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p id="confirmModalText" style="font-size:0.9rem; color:var(--text-main);"></p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline" onclick="closeModal('confirmModal')">Batal</button>
+      <button type="button" class="btn btn-danger" id="confirmModalActionBtn">Ya, Teruskan</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notification Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+/* ==========================================================================
+   SISTEM PENGURUSAN KAD HARI LAHIR AHLI 2026 - LOGIK UTAMA (VANILLA JS)
+   ========================================================================== */
+
+const STORAGE_KEY = 'bday_card_mgmt_2026_v1';
+
+const NAMA_BULAN = [
+  'Januari', 'Februari', 'Mac', 'April', 'Mei', 'Jun',
+  'Julai', 'Ogos', 'September', 'Oktober', 'November', 'Disember'
+];
+
+const NAMA_BULAN_PENDEK = [
+  'Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun',
+  'Jul', 'Ogo', 'Sep', 'Okt', 'Nov', 'Dis'
+];
+
+const NAMA_HARI = ['Ahd', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum', 'Sab'];
+
+/* 5 Tema Kad Digital Eksklusif */
+const CARD_THEMES = [
+  {
+    id: 'royal_gold',
+    name: 'Emas Diraja & Navy',
+    swatch: 'linear-gradient(135deg, #1e1b4b, #d97706)',
+    bgStart: '#17153b',
+    bgEnd: '#2e2a85',
+    accent: '#fbbf24',
+    accentSoft: 'rgba(251, 191, 36, 0.18)',
+    textPrimary: '#ffffff',
+    textSecondary: '#e0e7ff',
+    cardBoxBg: 'rgba(255, 255, 255, 0.08)',
+    borderColor: '#f59e0b'
+  },
+  {
+    id: 'sakura_pastel',
+    name: 'Bunga Sakura & Pastel',
+    swatch: 'linear-gradient(135deg, #ffe4e6, #f43f5e)',
+    bgStart: '#fff1f2',
+    bgEnd: '#ffe4e6',
+    accent: '#e11d48',
+    accentSoft: 'rgba(225, 29, 72, 0.1)',
+    textPrimary: '#881337',
+    textSecondary: '#9f1239',
+    cardBoxBg: 'rgba(255, 255, 255, 0.78)',
+    borderColor: '#fb7185'
+  },
+  {
+    id: 'confetti_indigo',
+    name: 'Konfeti Moden & Indigo',
+    swatch: 'linear-gradient(135deg, #3730a3, #8b5cf6)',
+    bgStart: '#eef2ff',
+    bgEnd: '#e0e7ff',
+    accent: '#4338ca',
+    accentSoft: 'rgba(67, 56, 202, 0.12)',
+    textPrimary: '#1e1b4b',
+    textSecondary: '#3730a3',
+    cardBoxBg: 'rgba(255, 255, 255, 0.88)',
+    borderColor: '#6366f1'
+  },
+  {
+    id: 'emerald_tropic',
+    name: 'Tropika & Zamrud',
+    swatch: 'linear-gradient(135deg, #064e3b, #10b981)',
+    bgStart: '#064e3b',
+    bgEnd: '#047857',
+    accent: '#fcd34d',
+    accentSoft: 'rgba(252, 211, 77, 0.18)',
+    textPrimary: '#ffffff',
+    textSecondary: '#d1fae5',
+    cardBoxBg: 'rgba(255, 255, 255, 0.09)',
+    borderColor: '#34d399'
+  },
+  {
+    id: 'classic_cream',
+    name: 'Minimalis Klasik & Krim',
+    swatch: 'linear-gradient(135deg, #fefce8, #b45309)',
+    bgStart: '#fdfbf7',
+    bgEnd: '#f5efe6',
+    accent: '#b45309',
+    accentSoft: 'rgba(180, 83, 9, 0.1)',
+    textPrimary: '#292524',
+    textSecondary: '#57534e',
+    cardBoxBg: 'rgba(255, 255, 255, 0.92)',
+    borderColor: '#d97706'
+  }
+];
+
+/* Templat Ucapan Bahasa Melayu */
+const GREETING_PRESETS = {
+  formal: 'Selamat Menyambut Hari Lahir! Semoga sentiasa dikurniakan kesihatan yang baik, kebahagiaan berpanjangan, dan kejayaan cemerlang dalam setiap langkah.',
+  mesra: 'Selamat Hari Lahir! Semoga hari istimewa ini dipenuhi dengan senyuman, kegembiraan, dan kenangan indah bersama insan tersayang.',
+  doa: 'Sanah Helwah! Didoakan semoga dipanjangkan umur dalam keberkatan, dimurahkan rezeki yang melimpah ruah, serta dipermudahkan segala urusan dunia dan akhirat.',
+  korporat: 'Ucapan setinggi-tinggi tahniah sempena ulang tahun kelahiran anda. Terima kasih atas komitmen dan sumbangan bermakna. Selamat Maju Jaya!'
+};
+
+/* Keadaan Global Aplikasi */
+let appState = {
+  members: [],
+  sentLogs: {}, // Format: { "2026": { "memberId": "2026-11-22T10:30:00.000Z" } }
+  settings: {
+    orgName: 'Kelab Kebajikan & Sosial Malaysia',
+    orgLogo: ''
+  }
+};
+
+let upcomingFilterDays = 7;
+let selectedThemeId = 'royal_gold';
+let tempMemberPhotoBase64 = '';
+let cachedMemberImgObj = null;
+let cachedOrgLogoObj = null;
+let fxIntervalId = null;
+
+/* ==========================================================================
+   INISIALISASI & PENYIMPANAN LOCALSTORAGE
+   ========================================================================== */
+function getTodayInfo() {
+  const now = new Date();
+  return {
+    dateObj: now,
+    year: now.getFullYear(),
+    month: now.getMonth() + 1, // 1-12
+    day: now.getDate()
+  };
+}
+
+function formatDateMY(isoDateStr) {
+  if (!isoDateStr) return '-';
+  const parts = isoDateStr.split('-');
+  if (parts.length !== 3) return isoDateStr;
+  const y = parts[0];
+  const m = parseInt(parts[1], 10);
+  const d = parseInt(parts[2], 10);
+  return `${d} ${NAMA_BULAN[m - 1]} ${y}`;
+}
+
+function formatDateShort(isoDateStr) {
+  if (!isoDateStr) return '-';
+  const parts = isoDateStr.split('-');
+  if (parts.length !== 3) return isoDateStr;
+  const m = parseInt(parts[1], 10);
+  const d = parseInt(parts[2], 10);
+  return `${d} ${NAMA_BULAN_PENDEK[m - 1]}`;
+}
+
+function normalizeMYPhone(raw) {
+  let digits = String(raw || '').replace(/\D/g, '');
+  if (!digits) return '';
+  if (digits.startsWith('0')) {
+    digits = '60' + digits.substring(1);
+  } else if (!digits.startsWith('60')) {
+    digits = '60' + digits;
+  }
+  return digits;
+}
+
+function generateId() {
+  return 'm_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 7);
+}
+
+function createRealisticSampleMembers() {
+  const today = getTodayInfo().dateObj;
+
+  function makeDobFromOffset(offsetDays, birthYear) {
+    const d = new Date(today.getFullYear(), today.getMonth(), today.getDate() + offsetDays);
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return `${birthYear}-${mm}-${dd}`;
+  }
+
+  return [
+    {
+      id: 'm_sample_1',
+      memberNo: 'A-001',
+      name: 'Ahmad Zulkifli bin Hassan',
+      phone: '60123456789',
+      dob: makeDobFromOffset(0, 1988), // Hari ini
+      photo: ''
+    },
+    {
+      id: 'm_sample_2',
+      memberNo: 'A-002',
+      name: 'Nurul Aina binti Mohd Razak',
+      phone: '60198765432',
+      dob: makeDobFromOffset(0, 1994), // Hari ini
+      photo: ''
+    },
+    {
+      id: 'm_sample_3',
+      memberNo: 'A-003',
+      name: 'Muhammad Hafiz bin Ismail',
+      phone: '60134567890',
+      dob: makeDobFromOffset(3, 1991), // Dalam 7 hari
+      photo: ''
+    },
+    {
+      id: 'm_sample_4',
+      memberNo: 'A-004',
+      name: 'Siti Khadijah binti Omar',
+      phone: '60176543210',
+      dob: makeDobFromOffset(6, 1985), // Dalam 7 hari
+      photo: ''
+    },
+    {
+      id: 'm_sample_5',
+      memberNo: 'A-005',
+      name: 'Tan Wei Ming',
+      phone: '60162345678',
+      dob: makeDobFromOffset(14, 1990), // Dalam 30 hari
+      photo: ''
+    },
+    {
+      id: 'm_sample_6',
+      memberNo: 'A-006',
+      name: 'Kavitha a/p Subramaniam',
+      phone: '601123456789',
+      dob: makeDobFromOffset(22, 1996), // Dalam 30 hari
+      photo: ''
+    },
+    {
+      id: 'm_sample_7',
+      memberNo: 'A-007',
+      name: 'Mohd Farid bin Abdullah',
+      phone: '60145678901',
+      dob: '1983-01-15',
+      photo: ''
+    },
+    {
+      id: 'm_sample_8',
+      memberNo: 'A-008',
+      name: 'Wan Norazlina binti Wan Yusoff',
+      phone: '60187654321',
+      dob: '1992-03-24',
+      photo: ''
+    },
+    {
+      id: 'm_sample_9',
+      memberNo: 'A-009',
+      name: 'Amirul Hakim bin Zainal',
+      phone: '60129876543',
+      dob: '1995-06-10',
+      photo: ''
+    },
+    {
+      id: 'm_sample_10',
+      memberNo: 'A-010',
+      name: 'Farah Nabila binti Sulaiman',
+      phone: '60192348765',
+      dob: '1989-08-31',
+      photo: ''
+    }
+  ];
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+  } catch (err) {
+    showToast('Amaran: Ruang storan pelayar hampir penuh. Sila gunakan gambar bersaiz kecil.');
+  }
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      appState.members = Array.isArray(parsed.members)
+        ? parsed.members.map((m, idx) => ({
+            ...m,
+            memberNo: m.memberNo || `A-${String(idx + 1).padStart(3, '0')}`
+          }))
+        : [];
+      appState.sentLogs = parsed.sentLogs && typeof parsed.sentLogs === 'object' ? parsed.sentLogs : {};
+      appState.settings = {
+        orgName: parsed.settings?.orgName || 'Kelab Kebajikan & Sosial Malaysia',
+        orgLogo: parsed.settings?.orgLogo || ''
+      };
+    } else {
+      appState.members = createRealisticSampleMembers();
+      saveState();
+    }
+  } catch (e) {
+    appState.members = createRealisticSampleMembers();
+    saveState();
+  }
+}
+
+/* ==========================================================================
+   NAVIGASI & ANTARA MUKA UMUM
+   ========================================================================== */
+function switchView(viewName) {
+  document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+  const target = document.getElementById('view-' + viewName);
+  if (target) target.classList.add('active');
+
+  document.querySelectorAll('.nav-btn, .m-nav-item').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.view === viewName);
+  });
+
+  const titles = {
+    dashboard: ['Dashboard Utama', 'Ringkasan sambutan hari lahir ahli & automasi peringatan'],
+    members: ['Pengurusan Ahli', 'Tambah, kemaskini, cari dan eksport maklumat ahli'],
+    calendar: ['Kalendar Hari Lahir Tahunan', 'Paparan lengkap tarikh hari lahir dari Januari hingga Disember'],
+    generator: ['Penjana Kad Hari Lahir Digital', 'Reka kad eksklusif dan hantar terus melalui WhatsApp'],
+    settings: ['Tetapan & Sandaran Data', 'Konfigurasi organisasi serta backup/restore fail JSON']
+  };
+
+  if (titles[viewName]) {
+    document.getElementById('topbarTitle').textContent = titles[viewName][0];
+    document.getElementById('topbarSubtitle').textContent = titles[viewName][1];
+  }
+
+  toggleSidebar(false);
+
+  if (viewName === 'generator') {
+    populateCardMemberSelect();
+    drawBirthdayCard();
+  } else if (viewName === 'calendar') {
+    renderAnnualCalendar();
+    renderMonthlySummaryList();
+  } else if (viewName === 'members') {
+    renderMembersTable();
+  } else if (viewName === 'dashboard') {
+    renderDashboard();
+  }
+}
+
+function toggleSidebar(open) {
+  const sb = document.getElementById('sidebar');
+  const ov = document.getElementById('sidebarOverlay');
+  if (open) {
+    sb.classList.add('open');
+    ov.classList.add('open');
+  } else {
+    sb.classList.remove('open');
+    ov.classList.remove('open');
+  }
+}
+
+function showToast(message) {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<span>&#10004;</span> <span>${escapeHtml(message)}</span>`;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(20px)';
+    toast.style.transition = 'all 0.25s ease';
+    setTimeout(() => toast.remove(), 260);
+  }, 3400);
+}
+
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function getInitials(name) {
+  const parts = String(name || 'A').trim().split(/\s+/);
+  if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+  return (parts[0][0] + parts[1][0]).toUpperCase();
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+/* ==========================================================================
+   PENGIRAAN HARI LAHIR & STATUS PENGHANTARAN
+   ========================================================================== */
+function getBirthdayMetrics(dobStr) {
+  const todayInfo = getTodayInfo();
+  const [bYear, bMonth, bDay] = dobStr.split('-').map(Number);
+
+  const todayMidnight = new Date(todayInfo.year, todayInfo.month - 1, todayInfo.day);
+  let nextBday = new Date(todayInfo.year, bMonth - 1, bDay);
+
+  if (nextBday < todayMidnight) {
+    nextBday = new Date(todayInfo.year + 1, bMonth - 1, bDay);
+  }
+
+  const diffMs = nextBday - todayMidnight;
+  const daysUntil = Math.round(diffMs / (1000 * 60 * 60 * 24));
+  const isToday = (bMonth === todayInfo.month && bDay === todayInfo.day);
+  const isThisMonth = (bMonth === todayInfo.month);
+  const turningAge = nextBday.getFullYear() - bYear;
+  const ageThisYear = todayInfo.year - bYear;
+
+  return {
+    bYear,
+    bMonth,
+    bDay,
+    daysUntil,
+    isToday,
+    isThisMonth,
+    turningAge,
+    ageThisYear
+  };
+}
+
+function isCardSentForYear(memberId, year = getTodayInfo().year) {
+  return Boolean(appState.sentLogs?.[year]?.[memberId]);
+}
+
+function getSentTimestampForYear(memberId, year = getTodayInfo().year) {
+  return appState.sentLogs?.[year]?.[memberId] || null;
+}
+
+function markCardAsSent(memberId, silent = false) {
+  const year = getTodayInfo().year;
+  if (!appState.sentLogs[year]) appState.sentLogs[year] = {};
+  appState.sentLogs[year][memberId] = new Date().toISOString();
+  saveState();
+  refreshAllViews();
+  if (!silent) {
+    showToast('Status penghantaran kad telah direkodkan!');
+  }
+}
+
+function toggleCardSentStatus(memberId) {
+  const year = getTodayInfo().year;
+  if (!appState.sentLogs[year]) appState.sentLogs[year] = {};
+  if (appState.sentLogs[year][memberId]) {
+    delete appState.sentLogs[year][memberId];
+    showToast('Status ditukar kepada Belum Dihantar.');
+  } else {
+    appState.sentLogs[year][memberId] = new Date().toISOString();
+    showToast('Ditanda sebagai Telah Dihantar!');
+  }
+  saveState();
+  refreshAllViews();
+}
+
+/* ==========================================================================
+   1. RENDER DASHBOARD UTAMA & AUTOMASI PERINGATAN
+   ========================================================================== */
+function renderDashboard() {
+  const todayInfo = getTodayInfo();
+  const currentYear = todayInfo.year;
+
+  document.getElementById('kpiYearLabel').textContent = currentYear;
+  document.getElementById('checklistYearBadge').textContent = 'Tahun ' + currentYear;
+  document.getElementById('kpiMonthName').textContent = NAMA_BULAN[todayInfo.month - 1] + ' ' + currentYear;
+
+  const totalMembers = appState.members.length;
+  let monthBdays = 0;
+  let todayList = [];
+  let upcomingList = [];
+  let sentCount = 0;
+
+  appState.members.forEach(m => {
+    const metrics = getBirthdayMetrics(m.dob);
+    if (metrics.isThisMonth) monthBdays++;
+    if (metrics.isToday) todayList.push({ member: m, metrics });
+    if (metrics.daysUntil > 0 && metrics.daysUntil <= 30) {
+      upcomingList.push({ member: m, metrics });
+    }
+    if (isCardSentForYear(m.id, currentYear)) sentCount++;
+  });
+
+  upcomingList.sort((a, b) => a.metrics.daysUntil - b.metrics.daysUntil);
+
+  // Kemaskini KPI
+  document.getElementById('kpiTotalMembers').textContent = totalMembers;
+  document.getElementById('kpiMonthBdays').textContent = monthBdays;
+  document.getElementById('kpiTodayBdays').textContent = todayList.length;
+  document.getElementById('kpiSentCards').textContent = sentCount;
+
+  const rate = totalMembers > 0 ? Math.round((sentCount / totalMembers) * 100) : 0;
+  document.getElementById('kpiSentRate').textContent = `${rate}% daripada jumlah ahli`;
+
+  // Badge pada sidebar
+  const navBadge = document.getElementById('navTodayBadge');
+  if (todayList.length > 0) {
+    navBadge.style.display = 'inline-block';
+    navBadge.textContent = todayList.length;
+  } else {
+    navBadge.style.display = 'none';
+  }
+
+  // Banner Notifikasi Automatik
+  const banner = document.getElementById('autoReminderBanner');
+  const soon3Days = upcomingList.filter(item => item.metrics.daysUntil <= 3);
+  if (todayList.length > 0) {
+    banner.style.display = 'flex';
+    const names = todayList.map(x => x.member.name).join(', ');
+    document.getElementById('bannerTitle').textContent = `Hari Lahir Hari Ini (${todayList.length} Ahli)!`;
+    document.getElementById('bannerDesc').textContent = `Raikan hari istimewa: ${names}. Klik butang di sebelah untuk menjana dan menghantar kad ucapan WhatsApp.`;
+  } else if (soon3Days.length > 0) {
+    banner.style.display = 'flex';
+    document.getElementById('bannerTitle').textContent = `Peringatan Awal Hari Lahir (${soon3Days.length} Ahli dalam 3 hari)`;
+    document.getElementById('bannerDesc').textContent = `Sediakan kad ucapan digital lebih awal untuk ahli yang bakal menyambut hari lahir.`;
+  } else {
+    banner.style.display = 'none';
+  }
+
+  // Paparan Senarai Hari Lahir Hari Ini
+  const todayContainer = document.getElementById('todayBdayContainer');
+  document.getElementById('todayCountTag').textContent = `${todayList.length} Ahli`;
+
+  if (todayList.length === 0) {
+    todayContainer.innerHTML = `
+      <div style="text-align:center; padding:24px; color:var(--text-muted);">
+        Tiada ahli yang menyambut hari lahir pada hari ini (${todayInfo.day} ${NAMA_BULAN[todayInfo.month - 1]}).
+      </div>`;
+  } else {
+    todayContainer.innerHTML = `<div class="today-bday-grid">` + todayList.map(({ member, metrics }) => {
+      const sent = isCardSentForYear(member.id, currentYear);
+      const avatarHtml = member.photo
+        ? `<img src="${member.photo}" class="avatar" alt="${escapeHtml(member.name)}" />`
+        : `<div class="avatar">${getInitials(member.name)}</div>`;
+      return `
+        <div class="today-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div class="member-row-info">
+              ${avatarHtml}
+              <div>
+                <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                  <span class="badge badge-indigo" style="font-size:0.7rem;">${escapeHtml(member.memberNo || '-')}</span>
+                  <span style="font-weight:700; font-size:0.95rem;">${escapeHtml(member.name)}</span>
+                </div>
+                <div style="font-size:0.8rem; color:var(--text-muted); margin-top:2px;">Umur ${metrics.ageThisYear} Tahun &bull; +${escapeHtml(member.phone)}</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:4px;">
+            ${sent
+              ? `<span class="badge badge-green">&#10004; Kad Dihantar</span>`
+              : `<span class="badge badge-rose">Belum Dihantar</span>`
+            }
+            <button class="btn btn-gold btn-sm" onclick="openGeneratorForMember('${member.id}')">
+              Jana &amp; Hantar Kad
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('') + `</div>`;
+  }
+
+  // Paparan Hari Lahir Akan Tiba (7 atau 30 hari)
+  const filteredUpcoming = upcomingList.filter(item => item.metrics.daysUntil <= upcomingFilterDays);
+  const upcomingContainer = document.getElementById('upcomingBdayContainer');
+
+  if (filteredUpcoming.length === 0) {
+    upcomingContainer.innerHTML = `
+      <div style="text-align:center; padding:26px; color:var(--text-muted); font-size:0.88rem;">
+        Tiada sambutan hari lahir dalam tempoh ${upcomingFilterDays} hari akan datang.
+      </div>`;
+  } else {
+    upcomingContainer.innerHTML = filteredUpcoming.map(({ member, metrics }) => {
+      const avatarHtml = member.photo
+        ? `<img src="${member.photo}" class="avatar" style="width:40px; height:40px;" alt="" />`
+        : `<div class="avatar" style="width:40px; height:40px; font-size:0.85rem;">${getInitials(member.name)}</div>`;
+      return `
+        <div class="list-item">
+          <div class="member-row-info">
+            ${avatarHtml}
+            <div>
+              <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                <span class="badge badge-gray" style="font-size:0.7rem;">${escapeHtml(member.memberNo || '-')}</span>
+                <span style="font-weight:600; font-size:0.9rem;">${escapeHtml(member.name)}</span>
+              </div>
+              <div style="font-size:0.78rem; color:var(--text-muted); margin-top:2px;">
+                ${formatDateShort(member.dob)} &bull; Bakal berumur ${metrics.turningAge} tahun
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="badge ${metrics.daysUntil <= 7 ? 'badge-gold' : 'badge-indigo'}">
+              ${metrics.daysUntil} hari lagi
+            </span>
+            <button class="btn btn-outline btn-sm" onclick="openGeneratorForMember('${member.id}')">
+              Sedia Kad
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Senarai Semak & Rekod Penghantaran Kad
+  const checklistContainer = document.getElementById('deliveryChecklistContainer');
+  if (appState.members.length === 0) {
+    checklistContainer.innerHTML = `<p style="color:var(--text-muted); text-align:center;">Tiada rekod ahli.</p>`;
+  } else {
+    // Susun: Hari ini dahulu, kemudian akan tiba, kemudian yang sudah dihantar
+    const sortedForChecklist = [...appState.members].sort((a, b) => {
+      const mA = getBirthdayMetrics(a.dob);
+      const mB = getBirthdayMetrics(b.dob);
+      return mA.daysUntil - mB.daysUntil;
+    });
+
+    checklistContainer.innerHTML = sortedForChecklist.map(m => {
+      const sentTs = getSentTimestampForYear(m.id, currentYear);
+      const isSent = Boolean(sentTs);
+      let dateSentLabel = 'Belum dihantar';
+      if (isSent) {
+        const dObj = new Date(sentTs);
+        dateSentLabel = `Dihantar: ${dObj.getDate()}/${dObj.getMonth() + 1}/${dObj.getFullYear()} ${String(dObj.getHours()).padStart(2, '0')}:${String(dObj.getMinutes()).padStart(2, '0')}`;
+      }
+
+      return `
+        <div class="list-item">
+          <label style="display:flex; align-items:center; gap:10px; cursor:pointer; flex:1; min-width:180px;">
+            <input type="checkbox" ${isSent ? 'checked' : ''} onchange="toggleCardSentStatus('${m.id}')" style="width:17px; height:17px; accent-color:var(--emerald); cursor:pointer;" />
+            <div>
+              <div style="font-weight:600; font-size:0.86rem; ${isSent ? 'text-decoration:line-through; color:var(--text-muted);' : ''}">
+                <span style="color:var(--primary); font-weight:700;">[${escapeHtml(m.memberNo || '-')}]</span> ${escapeHtml(m.name)}
+              </div>
+              <div style="font-size:0.74rem; color:var(--text-muted);">
+                Lahir: ${formatDateShort(m.dob)} &bull; ${dateSentLabel}
+              </div>
+            </div>
+          </label>
+          <span class="badge ${isSent ? 'badge-green' : 'badge-gray'}">
+            ${isSent ? 'Selesai' : 'Menunggu'}
+          </span>
+        </div>
+      `;
+    }).join('');
+  }
+}
+
+function setUpcomingFilter(days) {
+  upcomingFilterDays = days;
+  document.getElementById('tab7Days').classList.toggle('active', days === 7);
+  document.getElementById('tab30Days').classList.toggle('active', days === 30);
+  renderDashboard();
+}
+
+/* ==========================================================================
+   2. PENGURUSAN AHLI (CRUD, GAMBAR RESIZE, IMPORT/EKSPORT CSV)
+   ========================================================================== */
+function renderMembersTable() {
+  const query = document.getElementById('memberSearchInput').value.trim().toLowerCase();
+  const monthFilter = document.getElementById('memberMonthFilter').value;
+  const statusFilter = document.getElementById('memberStatusFilter').value;
+  const currentYear = getTodayInfo().year;
+
+  document.querySelectorAll('.dyn-year').forEach(el => el.textContent = currentYear);
+
+  const filtered = appState.members.filter(m => {
+    const mNo = (m.memberNo || '').toLowerCase();
+    const matchText = mNo.includes(query) || m.name.toLowerCase().includes(query) || m.phone.includes(query);
+    const bMonth = parseInt(m.dob.split('-')[1], 10);
+    const matchMonth = (monthFilter === 'all') || (bMonth === parseInt(monthFilter, 10));
+    const sent = isCardSentForYear(m.id, currentYear);
+    const matchStatus = (statusFilter === 'all') ||
+      (statusFilter === 'sent' && sent) ||
+      (statusFilter === 'pending' && !sent);
+    return matchText && matchMonth && matchStatus;
+  });
+
+  const tbody = document.getElementById('membersTableBody');
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:28px; color:var(--text-muted);">Tiada rekod ahli ditemui berdasarkan carian/penapis semasa.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(m => {
+    const metrics = getBirthdayMetrics(m.dob);
+    const sent = isCardSentForYear(m.id, currentYear);
+    const avatarHtml = m.photo
+      ? `<img src="${m.photo}" class="avatar" style="width:40px; height:40px;" alt="" />`
+      : `<div class="avatar" style="width:40px; height:40px; font-size:0.85rem;">${getInitials(m.name)}</div>`;
+
+    return `
+      <tr>
+        <td><span class="badge badge-indigo" style="font-weight:700;">${escapeHtml(m.memberNo || '-')}</span></td>
+        <td>
+          <div class="member-row-info">
+            ${avatarHtml}
+            <div>
+              <div style="font-weight:700;">${escapeHtml(m.name)}</div>
+              ${metrics.isToday ? `<span class="badge badge-gold">Hari Lahir Hari Ini!</span>` : ''}
+            </div>
+          </div>
+        </td>
+        <td>+${escapeHtml(m.phone)}</td>
+        <td>${formatDateMY(m.dob)}</td>
+        <td>${metrics.ageThisYear} Tahun</td>
+        <td>
+          ${sent
+            ? `<span class="badge badge-green">&#10004; Telah Dihantar</span>`
+            : `<span class="badge badge-gray">Belum Dihantar</span>`
+          }
+        </td>
+        <td style="text-align:right; white-space:nowrap;">
+          <button class="btn btn-gold btn-sm" onclick="openGeneratorForMember('${m.id}')" title="Jana Kad">Kad</button>
+          <button class="btn btn-outline btn-sm" onclick="openMemberModal('${m.id}')">Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="confirmDeleteMember('${m.id}')">Padam</button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function getNextSuggestedMemberNo() {
+  const nextNum = appState.members.length + 1;
+  return 'A-' + String(nextNum).padStart(3, '0');
+}
+
+function openMemberModal(memberId = null) {
+  const form = document.getElementById('memberForm');
+  form.reset();
+  tempMemberPhotoBase64 = '';
+  document.getElementById('memberPhotoPreviewWrap').style.display = 'none';
+
+  if (memberId) {
+    const m = appState.members.find(x => x.id === memberId);
+    if (!m) return;
+    document.getElementById('memberModalTitle').textContent = 'Kemaskini Maklumat Ahli';
+    document.getElementById('editMemberId').value = m.id;
+    document.getElementById('memberNoInput').value = m.memberNo || '';
+    document.getElementById('memberFullName').value = m.name;
+    document.getElementById('memberPhone').value = m.phone;
+    document.getElementById('memberDob').value = m.dob;
+    if (m.photo) {
+      tempMemberPhotoBase64 = m.photo;
+      document.getElementById('memberPhotoPreview').src = m.photo;
+      document.getElementById('memberPhotoPreviewWrap').style.display = 'flex';
+    }
+  } else {
+    document.getElementById('memberModalTitle').textContent = 'Tambah Ahli Baharu';
+    document.getElementById('editMemberId').value = '';
+    document.getElementById('memberNoInput').value = getNextSuggestedMemberNo();
+  }
+
+  document.getElementById('memberModal').classList.add('open');
+}
+
+/* Resize gambar ahli kepada 240x240 supaya ringan dalam LocalStorage */
+function resizeImageToBase64(file, maxSize, callback) {
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const img = new Image();
+    img.onload = function () {
+      const canvas = document.createElement('canvas');
+      let w = img.width;
+      let h = img.height;
+      if (w > h) {
+        if (w > maxSize) { h = Math.round(h * maxSize / w); w = maxSize; }
+      } else {
+        if (h > maxSize) { w = Math.round(w * maxSize / h); h = maxSize; }
+      }
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      callback(canvas.toDataURL('image/png', 0.88));
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function previewMemberPhoto(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  resizeImageToBase64(file, 260, (dataUrl) => {
+    tempMemberPhotoBase64 = dataUrl;
+    document.getElementById('memberPhotoPreview').src = dataUrl;
+    document.getElementById('memberPhotoPreviewWrap').style.display = 'flex';
+  });
+}
+
+function clearMemberPhoto() {
+  tempMemberPhotoBase64 = '';
+  document.getElementById('memberPhotoInput').value = '';
+  document.getElementById('memberPhotoPreviewWrap').style.display = 'none';
+}
+
+function saveMemberForm(event) {
+  event.preventDefault();
+  const id = document.getElementById('editMemberId').value;
+  const memberNo = document.getElementById('memberNoInput').value.trim();
+  const name = document.getElementById('memberFullName').value.trim();
+  const phone = normalizeMYPhone(document.getElementById('memberPhone').value);
+  const dob = document.getElementById('memberDob').value;
+
+  if (!memberNo || !name || !phone || !dob) {
+    showToast('Sila lengkapkan semua medan wajib.');
+    return;
+  }
+
+  if (id) {
+    const idx = appState.members.findIndex(x => x.id === id);
+    if (idx !== -1) {
+      appState.members[idx] = {
+        ...appState.members[idx],
+        memberNo,
+        name,
+        phone,
+        dob,
+        photo: tempMemberPhotoBase64
+      };
+      showToast('Maklumat ahli berjaya dikemaskini!');
+    }
+  } else {
+    appState.members.push({
+      id: generateId(),
+      memberNo,
+      name,
+      phone,
+      dob,
+      photo: tempMemberPhotoBase64
+    });
+    showToast('Ahli baharu berjaya ditambah!');
+  }
+
+  saveState();
+  closeModal('memberModal');
+  refreshAllViews();
+}
+
+function confirmDeleteMember(memberId) {
+  const m = appState.members.find(x => x.id === memberId);
+  if (!m) return;
+  document.getElementById('confirmModalTitle').textContent = 'Padam Maklumat Ahli';
+  document.getElementById('confirmModalText').textContent = `Adakah anda pasti ingin memadam rekod ahli "${m.name}"? Tindakan ini tidak boleh dikembalikan.`;
+  const btn = document.getElementById('confirmModalActionBtn');
+  btn.onclick = () => {
+    appState.members = appState.members.filter(x => x.id !== memberId);
+    saveState();
+    closeModal('confirmModal');
+    refreshAllViews();
+    showToast('Rekod ahli telah dipadam.');
+  };
+  document.getElementById('confirmModal').classList.add('open');
+}
+
+/* Eksport & Import CSV Ahli */
+function downloadSampleCSVTemplate() {
+  const sampleRows = [
+    ['No. Ahli', 'Nama Penuh', 'No. Telefon WhatsApp', 'Tarikh Lahir (YYYY-MM-DD)'],
+    ['A-101', 'Ahmad bin Abu', '60123456789', '1988-05-14'],
+    ['A-102', 'Siti Aminah binti Ali', '60198765432', '1993-11-28']
+  ];
+  const csvContent = '\uFEFF' + sampleRows.map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'Templat_Import_Ahli_2026.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Templat CSV berjaya dimuat turun! Anda boleh buka & isi dalam Excel.');
+}
+
+function exportMembersCSV() {
+  const headers = ['No. Ahli', 'Nama Penuh', 'No. Telefon WhatsApp', 'Tarikh Lahir (YYYY-MM-DD)'];
+  const rows = appState.members.map(m => [
+    `"${(m.memberNo || '').replace(/"/g, '""')}"`,
+    `"${m.name.replace(/"/g, '""')}"`,
+    `"${m.phone}"`,
+    `"${m.dob}"`
+  ]);
+  const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Senarai_Ahli_Hari_Lahir_${getTodayInfo().year}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Fail CSV senarai ahli berjaya dieksport!');
+}
+
+function importMembersCSV(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const text = e.target.result;
+    const lines = text.split(/\r?\n/).filter(l => l.trim() !== '');
+    let importedCount = 0;
+
+    lines.forEach((line, index) => {
+      if (index === 0 && (line.toLowerCase().includes('nama') || line.toLowerCase().includes('no. ahli'))) return; // Langkau header
+      const cols = line.split(',').map(c => c.replace(/^"|"$/g, '').trim());
+
+      let memberNo = '';
+      let name = '';
+      let phone = '';
+      let dob = '';
+
+      if (cols.length >= 4) {
+        memberNo = cols[0] || getNextSuggestedMemberNo();
+        name = cols[1];
+        phone = normalizeMYPhone(cols[2]);
+        dob = cols[3];
+      } else if (cols.length === 3) {
+        memberNo = `A-${String(appState.members.length + importedCount + 1).padStart(3, '0')}`;
+        name = cols[0];
+        phone = normalizeMYPhone(cols[1]);
+        dob = cols[2];
+      }
+
+      if (name && phone && /^\d{4}-\d{2}-\d{2}$/.test(dob)) {
+        appState.members.push({
+          id: generateId(),
+          memberNo,
+          name,
+          phone,
+          dob,
+          photo: ''
+        });
+        importedCount++;
+      }
+    });
+
+    event.target.value = '';
+    if (importedCount > 0) {
+      saveState();
+      refreshAllViews();
+      showToast(`Berjaya mengimport ${importedCount} rekod ahli daripada CSV!`);
+    } else {
+      showToast('Tiada rekod sah ditemui. Pastikan format CSV: No. Ahli, Nama, No Telefon, YYYY-MM-DD');
+    }
+  };
+  reader.readAsText(file);
+}
+
+/* ==========================================================================
+   3. KALENDAR HARI LAHIR TAHUNAN (JANUARI - DISEMBER)
+   ========================================================================== */
+function initCalendarControls() {
+  const todayInfo = getTodayInfo();
+  const yearSelect = document.getElementById('calendarYearSelect');
+  yearSelect.innerHTML = `
+    <option value="${todayInfo.year}">Tahun Semasa (${todayInfo.year})</option>
+    <option value="${todayInfo.year + 1}">Tahun Berikutnya (${todayInfo.year + 1})</option>
+  `;
+  document.getElementById('summaryMonthSelect').value = String(todayInfo.month);
+}
+
+function renderAnnualCalendar() {
+  const selectedYear = parseInt(document.getElementById('calendarYearSelect').value, 10) || getTodayInfo().year;
+  const todayInfo = getTodayInfo();
+  const grid = document.getElementById('annualCalendarGrid');
+
+  // Petakan ahli mengikut "MM-DD"
+  const bdayMap = {};
+  appState.members.forEach(m => {
+    const [, mm, dd] = m.dob.split('-');
+    const key = `${parseInt(mm, 10)}-${parseInt(dd, 10)}`;
+    if (!bdayMap[key]) bdayMap[key] = [];
+    bdayMap[key].push(m);
+  });
+
+  let html = '';
+  for (let month = 1; month <= 12; month++) {
+    const firstWeekday = new Date(selectedYear, month - 1, 1).getDay(); // 0 = Ahad
+    const daysInMonth = new Date(selectedYear, month, 0).getDate();
+
+    let monthBdayCount = 0;
+    let daysCells = '';
+
+    for (let empty = 0; empty < firstWeekday; empty++) {
+      daysCells += `<div class="cal-day empty"></div>`;
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const key = `${month}-${day}`;
+      const list = bdayMap[key] || [];
+      const hasBday = list.length > 0;
+      if (hasBday) monthBdayCount += list.length;
+
+      const isToday = (selectedYear === todayInfo.year && month === todayInfo.month && day === todayInfo.day);
+      const classes = ['cal-day'];
+      if (isToday) classes.push('is-today');
+      if (hasBday) classes.push('has-bday');
+
+      const clickAttr = hasBday ? `onclick="openCalendarDayModal(${selectedYear}, ${month}, ${day})"` : '';
+      const titleAttr = hasBday ? `title="${list.map(x => escapeHtml(x.name)).join(', ')}"` : '';
+
+      daysCells += `
+        <div class="${classes.join(' ')}" ${clickAttr} ${titleAttr}>
+          <span>${day}</span>
+          ${hasBday ? `<span class="bday-dot"></span>` : ''}
+        </div>
+      `;
+    }
+
+    html += `
+      <div class="month-card">
+        <div class="month-card-header">
+          <h4>${NAMA_BULAN[month - 1]} ${selectedYear}</h4>
+          <span class="badge ${monthBdayCount > 0 ? 'badge-gold' : 'badge-gray'}">${monthBdayCount} Ahli</span>
+        </div>
+        <div class="cal-weekdays">
+          ${NAMA_HARI.map(h => `<div>${h}</div>`).join('')}
+        </div>
+        <div class="cal-days">
+          ${daysCells}
+        </div>
+      </div>
+    `;
+  }
+
+  grid.innerHTML = html;
+}
+
+function openCalendarDayModal(year, month, day) {
+  const matched = appState.members.filter(m => {
+    const [, mm, dd] = m.dob.split('-').map(Number);
+    return mm === month && dd === day;
+  });
+
+  document.getElementById('calModalTitle').textContent = `Hari Lahir: ${day} ${NAMA_BULAN[month - 1]} ${year}`;
+  const body = document.getElementById('calModalBody');
+
+  body.innerHTML = matched.map(m => {
+    const bYear = parseInt(m.dob.split('-')[0], 10);
+    const age = year - bYear;
+    const avatarHtml = m.photo
+      ? `<img src="${m.photo}" class="avatar" alt="" />`
+      : `<div class="avatar">${getInitials(m.name)}</div>`;
+
+    return `
+      <div class="list-item">
+        <div class="member-row-info">
+          ${avatarHtml}
+          <div>
+            <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+              <span class="badge badge-indigo" style="font-size:0.7rem;">${escapeHtml(m.memberNo || '-')}</span>
+              <span style="font-weight:700;">${escapeHtml(m.name)}</span>
+            </div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-top:2px;">Umur ${age} Tahun &bull; +${escapeHtml(m.phone)}</div>
+          </div>
+        </div>
+        <button class="btn btn-gold btn-sm" onclick="closeModal('calendarDayModal'); openGeneratorForMember('${m.id}');">
+          Jana Kad
+        </button>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('calendarDayModal').classList.add('open');
+}
+
+function renderMonthlySummaryList() {
+  const month = parseInt(document.getElementById('summaryMonthSelect').value, 10);
+  const currentYear = getTodayInfo().year;
+  const list = appState.members
+    .filter(m => parseInt(m.dob.split('-')[1], 10) === month)
+    .sort((a, b) => parseInt(a.dob.split('-')[2], 10) - parseInt(b.dob.split('-')[2], 10));
+
+  const container = document.getElementById('monthlySummaryContainer');
+  if (list.length === 0) {
+    container.innerHTML = `<p style="color:var(--text-muted); text-align:center; padding:16px;">Tiada ahli yang menyambut hari lahir pada bulan ${NAMA_BULAN[month - 1]}.</p>`;
+    return;
+  }
+
+  container.innerHTML = list.map(m => {
+    const day = parseInt(m.dob.split('-')[2], 10);
+    const bYear = parseInt(m.dob.split('-')[0], 10);
+    const sent = isCardSentForYear(m.id, currentYear);
+    return `
+      <div class="list-item">
+        <div class="member-row-info">
+          <div class="badge badge-indigo" style="font-size:0.82rem; padding:6px 12px;">${day} ${NAMA_BULAN_PENDEK[month - 1]}</div>
+          <div>
+            <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+              <span class="badge badge-gray" style="font-size:0.7rem;">${escapeHtml(m.memberNo || '-')}</span>
+              <span style="font-weight:700;">${escapeHtml(m.name)}</span>
+            </div>
+            <div style="font-size:0.78rem; color:var(--text-muted); margin-top:2px;">Umur ${currentYear - bYear} tahun &bull; +${escapeHtml(m.phone)}</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          ${sent ? `<span class="badge badge-green">Dihantar</span>` : `<span class="badge badge-gray">Belum</span>`}
+          <button class="btn btn-gold btn-sm" onclick="openGeneratorForMember('${m.id}')">Jana Kad</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* ==========================================================================
+   4. PENJANA KAD HARI LAHIR DIGITAL (HTML5 CANVAS 1080x1080 + ANIMASI)
+   ========================================================================== */
+function initCardGeneratorUI() {
+  // Bina butang pilihan 5 tema
+  const grid = document.getElementById('themeSelectorGrid');
+  grid.innerHTML = CARD_THEMES.map(t => `
+    <button type="button" class="theme-chip ${t.id === selectedThemeId ? 'active' : ''}" data-theme="${t.id}" onclick="selectCardTheme('${t.id}')">
+      <div class="theme-swatch" style="background:${t.swatch};"></div>
+      <div style="font-size:0.78rem; font-weight:700; color:var(--text-main);">${t.name}</div>
+    </button>
+  `).join('');
+
+  document.getElementById('cardSenderName').value = appState.settings.orgName;
+  populateCardMemberSelect();
+  updateWhatsAppPreviewMessage();
+  startFxAnimationLoop();
+  drawBirthdayCard();
+}
+
+function selectCardTheme(themeId) {
+  selectedThemeId = themeId;
+  document.querySelectorAll('.theme-chip').forEach(chip => {
+    chip.classList.toggle('active', chip.dataset.theme === themeId);
+  });
+  drawBirthdayCard();
+}
+
+function populateCardMemberSelect() {
+  const select = document.getElementById('cardMemberSelect');
+  const prevVal = select.value;
+  select.innerHTML = `<option value="">-- Pilih Ahli atau Taip Manual --</option>` +
+    appState.members.map(m => `<option value="${m.id}">[${escapeHtml(m.memberNo || '-')}] ${escapeHtml(m.name)} (${formatDateShort(m.dob)})</option>`).join('');
+  if (prevVal && appState.members.some(m => m.id === prevVal)) {
+    select.value = prevVal;
+  }
+}
+
+function openGeneratorForMember(memberId) {
+  switchView('generator');
+  populateCardMemberSelect();
+  const select = document.getElementById('cardMemberSelect');
+  select.value = memberId;
+  onSelectCardMember();
+  triggerFxBurst();
+}
+
+function onSelectCardMember() {
+  const memberId = document.getElementById('cardMemberSelect').value;
+  const member = appState.members.find(m => m.id === memberId);
+  const waStatus = document.getElementById('waStatusIndicator');
+
+  if (member) {
+    document.getElementById('cardRecipientName').value = member.name;
+    document.getElementById('waPhoneInput').value = member.phone;
+
+    const sent = isCardSentForYear(member.id, getTodayInfo().year);
+    waStatus.className = sent ? 'badge badge-green' : 'badge badge-gold';
+    waStatus.textContent = sent ? 'Telah Dihantar Tahun Ini' : 'Belum Dihantar';
+
+    if (member.photo) {
+      const img = new Image();
+      img.onload = () => {
+        cachedMemberImgObj = img;
+        drawBirthdayCard();
+      };
+      img.src = member.photo;
+    } else {
+      cachedMemberImgObj = null;
+      drawBirthdayCard();
+    }
+  } else {
+    cachedMemberImgObj = null;
+    waStatus.className = 'badge badge-gray';
+    waStatus.textContent = 'Mod Manual';
+    drawBirthdayCard();
+  }
+
+  updateWhatsAppPreviewMessage();
+}
+
+function applyGreetingPreset() {
+  const key = document.getElementById('greetingPresetSelect').value;
+  if (GREETING_PRESETS[key]) {
+    document.getElementById('cardGreetingText').value = GREETING_PRESETS[key];
+    drawBirthdayCard();
+    updateWhatsAppPreviewMessage();
+  }
+}
+
+function updateWhatsAppPreviewMessage() {
+  const recipient = document.getElementById('cardRecipientName').value.trim() || 'Sahabat';
+  const greeting = document.getElementById('cardGreetingText').value.trim();
+  const sender = document.getElementById('cardSenderName').value.trim() || appState.settings.orgName;
+
+  const msg = `Assalamualaikum & Salam Sejahtera *${recipient}*,\n\nSelamat Menyambut Hari Lahir!\n\n"${greeting}"\n\nIkhlas daripada,\n*${sender}*`;
+  document.getElementById('waMessageInput').value = msg;
+}
+
+/* Lukisan Kanvas Kad Hari Lahir Resolusi Tinggi (1080 x 1080 px) */
+function drawBirthdayCard() {
+  const canvas = document.getElementById('cardCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = 1080;
+  const H = 1080;
+
+  const theme = CARD_THEMES.find(t => t.id === selectedThemeId) || CARD_THEMES[0];
+  const recipientName = document.getElementById('cardRecipientName').value.trim() || 'Nama Penerima';
+  const greetingText = document.getElementById('cardGreetingText').value.trim() || GREETING_PRESETS.formal;
+  const senderName = document.getElementById('cardSenderName').value.trim() || appState.settings.orgName;
+
+  // 1. Latar Belakang Gradien
+  const grad = ctx.createLinearGradient(0, 0, W, H);
+  grad.addColorStop(0, theme.bgStart);
+  grad.addColorStop(1, theme.bgEnd);
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  // 2. Hiasan Bulatan Cahaya & Konfeti Statik Dekoratif pada Kanvas
+  ctx.save();
+  ctx.fillStyle = theme.accentSoft;
+  ctx.beginPath();
+  ctx.arc(140, 140, 220, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(W - 120, H - 120, 260, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Konfeti dekoratif halus pada bucu
+  const confettiColors = [theme.accent, '#f43f5e', '#38bdf8', '#34d399', '#fbbf24'];
+  for (let i = 0; i < 36; i++) {
+    const cx = ((i * 197) % (W - 120)) + 60;
+    const cy = ((i * 293) % (H - 120)) + 60;
+    if (cx > 180 && cx < W - 180 && cy > 200 && cy < H - 200) continue;
+    ctx.fillStyle = confettiColors[i % confettiColors.length];
+    ctx.globalAlpha = 0.55;
+    ctx.beginPath();
+    ctx.arc(cx, cy, (i % 3) * 4 + 5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.restore();
+
+  // 3. Bingkai Berganda Eksklusif
+  ctx.save();
+  ctx.strokeStyle = theme.borderColor;
+  ctx.lineWidth = 6;
+  roundRectPath(ctx, 44, 44, W - 88, H - 88, 36);
+  ctx.stroke();
+
+  ctx.strokeStyle = theme.accentSoft;
+  ctx.lineWidth = 2;
+  roundRectPath(ctx, 62, 62, W - 124, H - 124, 28);
+  ctx.stroke();
+  ctx.restore();
+
+  // 4. Kad Tengah Lutsinar
+  ctx.save();
+  ctx.fillStyle = theme.cardBoxBg;
+  roundRectPath(ctx, 96, 100, W - 192, H - 200, 32);
+  ctx.fill();
+  ctx.restore();
+
+  let cursorY = 165;
+
+  // 5. Logo Organisasi (Jika Ada)
+  if (cachedOrgLogoObj) {
+    const logoSize = 92;
+    ctx.save();
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(W / 2, cursorY + logoSize / 2, logoSize / 2 + 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.clip();
+    ctx.drawImage(cachedOrgLogoObj, W / 2 - logoSize / 2, cursorY, logoSize, logoSize);
+    ctx.restore();
+    cursorY += logoSize + 36;
+  } else {
+    // Ikon Mahkota / Kek Vektor Dekoratif
+    drawCanvasCakeIcon(ctx, W / 2, cursorY + 26, theme.accent);
+    cursorY += 74;
+  }
+
+  // 6. Tajuk Utama Ucapan
+  ctx.textAlign = 'center';
+  ctx.fillStyle = theme.accent;
+  ctx.font = '700 26px "Segoe UI", Arial, sans-serif';
+  ctx.fillText('UCAPAN ISTIMEWA ULANG TAHUN', W / 2, cursorY);
+  cursorY += 56;
+
+  ctx.fillStyle = theme.textPrimary;
+  ctx.font = '800 54px Georgia, "Times New Roman", serif';
+  ctx.fillText('Selamat Hari Lahir', W / 2, cursorY);
+  cursorY += 42;
+
+  // Garis Pemisah Emas
+  ctx.strokeStyle = theme.accent;
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.moveTo(W / 2 - 110, cursorY);
+  ctx.lineTo(W / 2 + 110, cursorY);
+  ctx.stroke();
+  cursorY += 46;
+
+  // 7. Foto Ahli (Jika Ada)
+  if (cachedMemberImgObj) {
+    const photoR = 78;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(W / 2, cursorY + photoR, photoR + 6, 0, Math.PI * 2);
+    ctx.fillStyle = theme.accent;
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(W / 2, cursorY + photoR, photoR, 0, Math.PI * 2);
+    ctx.clip();
+    ctx.drawImage(cachedMemberImgObj, W / 2 - photoR, cursorY, photoR * 2, photoR * 2);
+    ctx.restore();
+    cursorY += photoR * 2 + 44;
+  } else {
+    cursorY += 16;
+  }
+
+  // 8. Nama Penerima
+  ctx.fillStyle = theme.accent;
+  ctx.font = '700 40px "Segoe UI", Arial, sans-serif';
+  cursorY = drawWrappedText(ctx, recipientName, W / 2, cursorY, W - 260, 48);
+  cursorY += 24;
+
+  // 9. Teks Ucapan Bahasa Melayu
+  ctx.fillStyle = theme.textSecondary;
+  ctx.font = '400 28px "Segoe UI", Arial, sans-serif';
+  cursorY = drawWrappedText(ctx, `"${greetingText}"`, W / 2, cursorY, W - 260, 42);
+
+  // 10. Pengirim / Organisasi di Bahagian Bawah Kad
+  const footerY = H - 155;
+  ctx.strokeStyle = theme.accentSoft;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(220, footerY - 38);
+  ctx.lineTo(W - 220, footerY - 38);
+  ctx.stroke();
+
+  ctx.fillStyle = theme.textSecondary;
+  ctx.font = '500 22px "Segoe UI", Arial, sans-serif';
+  ctx.fillText('Ikhlas daripada,', W / 2, footerY);
+
+  ctx.fillStyle = theme.textPrimary;
+  ctx.font = '700 28px "Segoe UI", Arial, sans-serif';
+  ctx.fillText(senderName, W / 2, footerY + 38);
+}
+
+function roundRectPath(ctx, x, y, width, height, radius) {
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+  ctx.closePath();
+}
+
+function drawCanvasCakeIcon(ctx, cx, cy, color) {
+  ctx.save();
+  ctx.fillStyle = color;
+  // Tapak kek
+  roundRectPath(ctx, cx - 34, cy - 4, 68, 28, 6);
+  ctx.fill();
+  // Tingkat atas
+  roundRectPath(ctx, cx - 22, cy - 22, 44, 16, 5);
+  ctx.fill();
+  // Lilin
+  ctx.fillRect(cx - 3, cy - 36, 6, 12);
+  // Api lilin
+  ctx.beginPath();
+  ctx.arc(cx, cy - 42, 5, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawWrappedText(ctx, text, x, startY, maxWidth, lineHeight) {
+  const words = text.split(/\s+/);
+  let line = '';
+  let y = startY;
+
+  for (let n = 0; n < words.length; n++) {
+    const testLine = line + words[n] + ' ';
+    const metrics = ctx.measureText(testLine);
+    if (metrics.width > maxWidth && n > 0) {
+      ctx.fillText(line.trim(), x, y);
+      line = words[n] + ' ';
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  ctx.fillText(line.trim(), x, y);
+  return y + lineHeight;
+}
+
+/* Lapisan Animasi Interaktif (Belon, Konfeti, Kelopak Bunga) */
+function startFxAnimationLoop() {
+  if (fxIntervalId) clearInterval(fxIntervalId);
+  fxIntervalId = setInterval(() => {
+    if (!document.getElementById('toggleFxCheckbox')?.checked) return;
+    if (!document.getElementById('view-generator')?.classList.contains('active')) return;
+    spawnSingleParticle();
+  }, 650);
+}
+
+function toggleFxLayer() {
+  const active = document.getElementById('toggleFxCheckbox').checked;
+  const overlay = document.getElementById('fxOverlay');
+  if (!active) {
+    overlay.innerHTML = '';
+  } else {
+    triggerFxBurst();
+  }
+}
+
+function triggerFxBurst() {
+  if (!document.getElementById('toggleFxCheckbox').checked) return;
+  for (let i = 0; i < 14; i++) {
+    setTimeout(spawnSingleParticle, i * 90);
+  }
+}
+
+function spawnSingleParticle() {
+  const overlay = document.getElementById('fxOverlay');
+  if (!overlay) return;
+
+  const types = ['balloon', 'confetti', 'petal'];
+  const type = types[Math.floor(Math.random() * types.length)];
+  const el = document.createElement('div');
+  el.className = 'fx-particle';
+
+  const leftPct = Math.random() * 92 + 2;
+  el.style.left = leftPct + '%';
+
+  if (type === 'balloon') {
+    const colors = ['#f59e0b', '#ec4899', '#6366f1', '#10b981', '#ef4444'];
+    const c = colors[Math.floor(Math.random() * colors.length)];
+    el.style.bottom = '-40px';
+    el.style.animation = `floatUp ${4.5 + Math.random() * 2}s ease-in forwards`;
+    el.innerHTML = `<svg width="28" height="36" viewBox="0 0 28 36"><ellipse cx="14" cy="13" rx="11" ry="13" fill="${c}" opacity="0.88"/><path d="M14 26 Q12 31 15 35" stroke="${c}" fill="none" stroke-width="1.5"/></svg>`;
+  } else if (type === 'petal') {
+    el.style.top = '-20px';
+    el.style.animation = `fallDown ${4 + Math.random() * 2}s linear forwards`;
+    el.innerHTML = `<svg width="18" height="18" viewBox="0 0 20 20"><path d="M10 2 C15 5 18 12 10 18 C2 12 5 5 10 2 Z" fill="#fda4af" opacity="0.85"/></svg>`;
+  } else {
+    const colors = ['#fbbf24', '#38bdf8', '#a855f7', '#34d399', '#fb7185'];
+    const c = colors[Math.floor(Math.random() * colors.length)];
+    el.style.top = '-15px';
+    el.style.width = '10px';
+    el.style.height = '10px';
+    el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    el.style.background = c;
+    el.style.animation = `fallDown ${3.2 + Math.random() * 1.8}s linear forwards`;
+  }
+
+  overlay.appendChild(el);
+  setTimeout(() => el.remove(), 6500);
+}
+
+/* Muat Turun Kad PNG / JPG */
+function downloadCardImage(format = 'png') {
+  drawBirthdayCard();
+  const canvas = document.getElementById('cardCanvas');
+  const recipient = (document.getElementById('cardRecipientName').value.trim() || 'Ahli')
+    .replace(/[^a-zA-Z0-9\s]/g, '')
+    .replace(/\s+/g, '_');
+
+  const mime = format === 'jpeg' ? 'image/jpeg' : 'image/png';
+  const ext = format === 'jpeg' ? 'jpg' : 'png';
+  const dataUrl = canvas.toDataURL(mime, 0.95);
+
+  const link = document.createElement('a');
+  link.download = `Kad_Hari_Lahir_${recipient}_2026.${ext}`;
+  link.href = dataUrl;
+  link.click();
+
+  showToast(`Kad hari lahir (${ext.toUpperCase()}) berjaya dimuat turun!`);
+}
+
+/* Kongsi Terus Web Share API (Telefon Pintar) */
+async function shareCardNative() {
+  drawBirthdayCard();
+  const canvas = document.getElementById('cardCanvas');
+  const recipient = document.getElementById('cardRecipientName').value.trim() || 'Ahli';
+  const cleanRecipient = recipient.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '_') || 'Ahli';
+  const msg = document.getElementById('waMessageInput').value.trim();
+
+  canvas.toBlob(async (blob) => {
+    if (!blob) {
+      showToast('Gagal menjana fail gambar kad.');
+      return;
+    }
+
+    const file = new File([blob], `Kad_Hari_Lahir_${cleanRecipient}_2026.png`, { type: 'image/png' });
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({
+          title: `Kad Hari Lahir - ${recipient}`,
+          text: msg,
+          files: [file]
+        });
+        const memberId = document.getElementById('cardMemberSelect').value;
+        if (memberId) {
+          markCardAsSent(memberId, true);
+          const waStatus = document.getElementById('waStatusIndicator');
+          waStatus.className = 'badge badge-green';
+          waStatus.textContent = 'Telah Dihantar Tahun Ini';
+        }
+        showToast('Kad digital dan ucapan berjaya dikongsi!');
+      } catch (err) {
+        if (err && err.name !== 'AbortError') {
+          showToast('Perkongsian dibatalkan atau tidak disokong pada peranti ini.');
+        }
+      }
+    } else {
+      await copyCardBlobToClipboard(blob);
+      downloadCardImage('png');
+      showToast('Peranti ini tidak menyokong perkongsian terus. Gambar kad telah disalin (Ctrl + V) dan dimuat turun.');
+    }
+  }, 'image/png');
+}
+
+/* Salin Blob PNG Kad ke Clipboard Sistem */
+async function copyCardBlobToClipboard(blob) {
+  try {
+    if (navigator.clipboard && window.ClipboardItem) {
+      const item = new ClipboardItem({ 'image/png': blob });
+      await navigator.clipboard.write([item]);
+      return true;
+    }
+  } catch (err) {
+    return false;
+  }
+  return false;
+}
+
+/* ==========================================================================
+   5. INTEGRASI WHATSAPP
+   ========================================================================== */
+function sendViaWhatsApp() {
+  const rawPhone = document.getElementById('waPhoneInput').value;
+  const phone = normalizeMYPhone(rawPhone);
+  const msg = document.getElementById('waMessageInput').value.trim();
+
+  if (!phone) {
+    showToast('Sila masukkan nombor telefon WhatsApp penerima terlebih dahulu.');
+    document.getElementById('waPhoneInput').focus();
+    return;
+  }
+
+  drawBirthdayCard();
+  const canvas = document.getElementById('cardCanvas');
+  const shouldProcessImage = document.getElementById('autoDownloadOnWa').checked;
+
+  // Rekodkan sebagai Telah Dihantar jika ahli dipilih
+  const memberId = document.getElementById('cardMemberSelect').value;
+  if (memberId) {
+    markCardAsSent(memberId, true);
+    const waStatus = document.getElementById('waStatusIndicator');
+    waStatus.className = 'badge badge-green';
+    waStatus.textContent = 'Telah Dihantar Tahun Ini';
+  }
+
+  const encodedText = encodeURIComponent(msg);
+  const waUrl = `https://wa.me/${phone}?text=${encodedText}`;
+
+  canvas.toBlob(async (blob) => {
+    let copied = false;
+    if (blob && shouldProcessImage) {
+      copied = await copyCardBlobToClipboard(blob);
+      downloadCardImage('png');
+    }
+
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+    if (copied) {
+      showToast('Gambar kad telah disalin! Tekan Ctrl + V di dalam WhatsApp untuk menampal kad.');
+    } else {
+      showToast('Membuka WhatsApp! Sila lampirkan fail kad PNG yang baru dimuat turun.');
+    }
+  }, 'image/png');
+}
+
+/* ==========================================================================
+   6. TETAPAN ORGANISASI, LOGO & BACKUP/RESTORE JSON
+   ========================================================================== */
+function handleOrgLogoUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  resizeImageToBase64(file, 240, (dataUrl) => {
+    appState.settings.orgLogo = dataUrl;
+    saveState();
+    applyOrgBranding();
+    showToast('Logo organisasi berjaya dimuat naik dan disimpan!');
+  });
+}
+
+function removeOrgLogo() {
+  appState.settings.orgLogo = '';
+  cachedOrgLogoObj = null;
+  saveState();
+  applyOrgBranding();
+  showToast('Logo organisasi telah dipadam.');
+}
+
+function saveOrgSettings() {
+  const orgName = document.getElementById('settingsOrgName').value.trim();
+  if (!orgName) {
+    showToast('Nama organisasi tidak boleh kosong.');
+    return;
+  }
+  appState.settings.orgName = orgName;
+  saveState();
+  applyOrgBranding();
+  showToast('Tetapan organisasi berjaya disimpan!');
+}
+
+function applyOrgBranding() {
+  const name = appState.settings.orgName;
+  const logo = appState.settings.orgLogo;
+
+  document.getElementById('sidebarOrgName').textContent = name;
+  document.getElementById('settingsOrgName').value = name;
+  document.getElementById('cardSenderName').value = name;
+
+  const sbLogo = document.getElementById('sidebarOrgLogo');
+  const setLogo = document.getElementById('settingsLogoPreview');
+
+  if (logo) {
+    sbLogo.src = logo;
+    sbLogo.style.display = 'block';
+    setLogo.src = logo;
+    setLogo.style.display = 'block';
+
+    const img = new Image();
+    img.onload = () => {
+      cachedOrgLogoObj = img;
+      drawBirthdayCard();
+    };
+    img.src = logo;
+  } else {
+    sbLogo.style.display = 'none';
+    setLogo.style.display = 'none';
+    cachedOrgLogoObj = null;
+    drawBirthdayCard();
+  }
+}
+
+function exportFullJSONBackup() {
+  const payload = {
+    system: 'Birthday Greeting Card Management System 2026',
+    exportedAt: new Date().toISOString(),
+    data: appState
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Backup_Sistem_Kad_Hari_Lahir_${new Date().toISOString().slice(0, 10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Fail backup JSON penuh berjaya dimuat turun!');
+}
+
+function importFullJSONBackup(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    try {
+      const parsed = JSON.parse(e.target.result);
+      const data = parsed.data || parsed;
+      if (!Array.isArray(data.members)) {
+        throw new Error('Struktur fail tidak sah');
+      }
+      appState.members = data.members;
+      appState.sentLogs = data.sentLogs || {};
+      appState.settings = data.settings || appState.settings;
+      saveState();
+      applyOrgBranding();
+      refreshAllViews();
+      showToast(`Pemulihan berjaya! ${appState.members.length} ahli dimuatkan.`);
+    } catch (err) {
+      showToast('Ralat: Fail JSON tidak sah atau rosak.');
+    }
+    event.target.value = '';
+  };
+  reader.readAsText(file);
+}
+
+function loadSampleData() {
+  appState.members = createRealisticSampleMembers();
+  appState.sentLogs = {};
+  saveState();
+  refreshAllViews();
+  showToast('Data contoh ahli 2026 berjaya dimuatkan!');
+}
+
+function openClearDataModal() {
+  document.getElementById('confirmModalTitle').textContent = 'Kosongkan Semua Data Sistem';
+  document.getElementById('confirmModalText').textContent = 'Semua rekod ahli dan log penghantaran kad akan dipadamkan. Sila pastikan anda telah membuat backup JSON terlebih dahulu.';
+  const btn = document.getElementById('confirmModalActionBtn');
+  btn.onclick = () => {
+    appState.members = [];
+    appState.sentLogs = {};
+    saveState();
+    closeModal('confirmModal');
+    refreshAllViews();
+    showToast('Semua data ahli telah dikosongkan.');
+  };
+  document.getElementById('confirmModal').classList.add('open');
+}
+
+/* ==========================================================================
+   REFRESH SEMUA PAPARAN & BOOTSTRAP
+   ========================================================================== */
+function refreshAllViews() {
+  renderDashboard();
+  renderMembersTable();
+  renderAnnualCalendar();
+  renderMonthlySummaryList();
+  populateCardMemberSelect();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const today = getTodayInfo();
+  document.getElementById('currentDateDisplay').textContent = `${today.day} ${NAMA_BULAN[today.month - 1]} ${today.year}`;
+
+  loadState();
+  initCalendarControls();
+  applyOrgBranding();
+  initCardGeneratorUI();
+  refreshAllViews();
+
+  // Pilih ahli hari ini secara automatik dalam Penjana Kad jika ada
+  const todayMember = appState.members.find(m => getBirthdayMetrics(m.dob).isToday);
+  if (todayMember) {
+    document.getElementById('cardMemberSelect').value = todayMember.id;
+    onSelectCardMember();
+  }
+});
+</script>
+</body>
+</html>
